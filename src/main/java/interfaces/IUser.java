@@ -5,11 +5,11 @@ import model.User;
 import java.util.Optional;
 
 public interface IUser {
-    User saveClient(User client);
+    User saveUser(User user);
 
-    Optional<User> findClientById(String Id);
+    Optional<User> findUserById(String id);
 
-    Iterable<User> findClients();
+    Iterable<User> findUsers();
 
-    void deleteClient(String Id);
+    void deleteUser(String Id);
 }

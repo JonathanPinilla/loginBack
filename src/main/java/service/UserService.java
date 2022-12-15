@@ -15,7 +15,7 @@ public class UserService implements IUser {
     private UserRepository userRepository;
 
     @Override
-    public User saveClient(User user) {
+    public User saveUser(User user) {
         try{
             return userRepository.save(user);
         } catch (Exception error) {
@@ -24,7 +24,7 @@ public class UserService implements IUser {
     }
 
     @Override
-    public Optional<User> findClientById(String id) {
+    public Optional<User> findUserById(String id) {
         try{
             return userRepository.findById(id);
         } catch (Exception error) {
@@ -33,7 +33,7 @@ public class UserService implements IUser {
     }
 
     @Override
-    public Iterable<User> findClients() {
+    public Iterable<User> findUsers() {
         try{
             return userRepository.findAll();
         } catch (Exception error) {
@@ -42,7 +42,7 @@ public class UserService implements IUser {
     }
 
     @Override
-    public void deleteClient(String id) {
+    public void deleteUser(String id) {
         try{
             userRepository.deleteById(id);
         } catch (Exception error) {
