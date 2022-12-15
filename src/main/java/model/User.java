@@ -1,11 +1,13 @@
 package model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
 @Document(collection = "user")
+@Data
 public class User {
 
     @Id
@@ -16,4 +18,5 @@ public class User {
     private String email;
     private Date creationDate;
     private Date loginDate;
+    private boolean active;
 }
