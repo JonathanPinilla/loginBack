@@ -1,10 +1,10 @@
-package service;
+package com.jonathan.loginback.service;
 
-import interfaces.IUser;
-import model.User;
+import com.jonathan.loginback.interfaces.IUser;
+import com.jonathan.loginback.model.User;
+import com.jonathan.loginback.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
 
 import java.util.Optional;
 

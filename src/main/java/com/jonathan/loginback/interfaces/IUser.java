@@ -1,6 +1,6 @@
-package interfaces;
+package com.jonathan.loginback.interfaces;
 
-import model.User;
+import com.jonathan.loginback.model.User;
 
 import java.util.Optional;
 

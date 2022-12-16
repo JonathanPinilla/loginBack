@@ -1,6 +1,6 @@
-package repository;
+package com.jonathan.loginback.repository;
 
-import model.User;
+import com.jonathan.loginback.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
