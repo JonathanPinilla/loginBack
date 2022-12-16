@@ -11,6 +11,8 @@ public interface IUser {
 
     Optional<User> findUserById(String id);
 
+    Optional<User> loginUser(String email, String password);
+
     Iterable<User> findUsers();
 
     void deleteUser(String Id);

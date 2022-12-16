@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.jonathan.loginback.service.UserService;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
@@ -22,6 +23,11 @@ public class UserController {
     @GetMapping(path = "/get-all")
     public Iterable<User> getAllUsers(){
         return userService.findUsers();
+    }
+
+    @GetMapping(path = "/get/")
+    public Optional<User> getUserById(@RequestBody String email, String password){
+        return userService.loginUser(email, password);
     }
 
     @PutMapping(path = "/update/{id}")

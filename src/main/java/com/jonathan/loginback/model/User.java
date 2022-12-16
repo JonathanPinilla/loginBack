@@ -10,11 +10,12 @@ import java.time.LocalDateTime;
 @Data
 public class User {
 
-    public User(String name, String lName, String uName, String email, ROLE role) {
+    public User(String name, String lName, String uName, String email,String password, ROLE role) {
         this.name = name;
         this.lName = lName;
         this.uName = uName;
         this.email = email;
+        this.password = password;
         this.role = role;
         this.creationDate = LocalDateTime.now();
         this.loginDate = LocalDateTime.now();
@@ -27,6 +28,7 @@ public class User {
     private String lName;
     private String uName;
     private String email;
+    private String password;
     private ROLE role;
     private LocalDateTime creationDate;
     private LocalDateTime loginDate;

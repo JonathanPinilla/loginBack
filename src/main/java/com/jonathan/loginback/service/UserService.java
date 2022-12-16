@@ -6,6 +6,8 @@ import com.jonathan.loginback.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -29,6 +31,21 @@ public class UserService implements IUser {
             return userRepository.findById(id);
         } catch (Exception error) {
             throw new IllegalArgumentException(error);
+        }
+    }
+
+    @Override
+    public Optional<User> loginUser(String email, String password) {
+        try{
+            Optional<User> foundByEmail = userRepository.findByEmail(email);
+            if(Objects.equals(foundByEmail.get().getPassword(), password)){
+                foundByEmail.get().setLoginDate(LocalDateTime.now());
+                userRepository.save(foundByEmail.get());
+                return foundByEmail;
+            }
+            throw new IllegalArgumentException("Wrong email or password");
+        }catch (Exception error){
+            throw new IllegalArgumentException("Wrong email or password");
         }
     }
 
