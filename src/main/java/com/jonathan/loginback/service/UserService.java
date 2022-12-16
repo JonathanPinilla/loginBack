@@ -44,7 +44,9 @@ public class UserService implements IUser {
     @Override
     public void deleteUser(String id) {
         try{
-            userRepository.deleteById(id);
+            Optional<User> deletedUser = userRepository.findById(id);
+            deletedUser.get().setActive(false);
+            userRepository.save(deletedUser.get());
         } catch (Exception error) {
             throw new IllegalArgumentException(error);
         }
