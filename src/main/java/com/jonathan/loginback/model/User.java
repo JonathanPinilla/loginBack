@@ -4,11 +4,22 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Document(collection = "user")
 @Data
 public class User {
+
+    public User(String name, String lName, String uName, String email, ROLE role) {
+        this.name = name;
+        this.lName = lName;
+        this.uName = uName;
+        this.email = email;
+        this.role = role;
+        this.creationDate = LocalDateTime.now();
+        this.loginDate = LocalDateTime.now();
+        this.active = true;
+    }
 
     @Id
     private String id;
@@ -16,7 +27,10 @@ public class User {
     private String lName;
     private String uName;
     private String email;
-    private Date creationDate;
-    private Date loginDate;
+    private ROLE role;
+    private LocalDateTime creationDate;
+    private LocalDateTime loginDate;
     private boolean active;
+
+    private enum ROLE {USER, ADMIN, OWNER};
 }
